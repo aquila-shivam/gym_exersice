@@ -1,5 +1,4 @@
-
-import './App.css';
+import '../src/App.css'
 import {Routes,Route} from 'react-router-dom';
 import {Box} from '@mui/material';
 import Navbar from './components/Navbar';
