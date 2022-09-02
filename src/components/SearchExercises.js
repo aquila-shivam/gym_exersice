@@ -4,7 +4,7 @@ import {Box,Button,Stack,TextField,Typography} from '@mui/material'
 import {options,fetchData} from '../utils/fetchData'
 import HorizontalScrollbar from './HorizontalScrollbar'
 
-const SearchExercises = ({setExercise,bodyPart,setBodyPart}) => {
+const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
   const[search,setSearch]= useState("");
   
   const [bodyParts, setBodyParts] = useState([])
@@ -15,9 +15,9 @@ const SearchExercises = ({setExercise,bodyPart,setBodyPart}) => {
           options)
           
          setBodyParts(['all',...bodyPartsData]);
-
          }
          fetchExercisesData();
+         
   }, []);
   
 
@@ -28,14 +28,14 @@ const SearchExercises = ({setExercise,bodyPart,setBodyPart}) => {
       options);
       
 
-      const searchExercise = exerciseData.fliter((exercises)=>
-       exercises.name.toLocaleLowerCase().include(search)
-      || exercises.target.toLocaleLowerCase().include(search)
-      || exercises.equipment.toLocaleLowerCase().include(search)
-      || exercises.bodyPart.toLocaleLowerCase().include(search));
+      const searchExercise = exerciseData.filter((exercises)=>
+       exercises.name.toLocaleLowerCase().includes(search)
+      || exercises.target.toLocaleLowerCase().includes(search)
+      || exercises.equipment.toLocaleLowerCase().includes(search)
+      || exercises.bodyPart.toLocaleLowerCase().includes(search));
 
       setSearch('');
-      setExercise(searchExercise);     
+      setExercises(searchExercise);     
 
       
     }
