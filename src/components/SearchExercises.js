@@ -4,7 +4,7 @@ import {Box,Button,Stack,TextField,Typography} from '@mui/material'
 import {options,fetchData} from '../utils/fetchData'
 import HorizontalScrollbar from './HorizontalScrollbar'
 
-const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
+const SearchExercises = ({setExercise,bodyPart,setBodyPart}) => {
   const[search,setSearch]= useState("");
   
   const [bodyParts, setBodyParts] = useState([])
@@ -29,17 +29,17 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
       
 
       const searchExercise = exerciseData.filter((exercises)=>
-       exercises.name.toLocaleLowerCase().includes(search)
-      || exercises.target.toLocaleLowerCase().includes(search)
-      || exercises.equipment.toLocaleLowerCase().includes(search)
-      || exercises.bodyPart.toLocaleLowerCase().includes(search));
+       exercises.name.toLowerCase().includes(search)
+      || exercises.target.toLowerCase().includes(search)
+      || exercises.equipment.toLowerCase().includes(search)
+      || exercises.bodyPart.toLowerCase().includes(search));
 
       setSearch('');
-      setExercises(searchExercise);     
+      setExercise(searchExercise);     
 
       
     }
-  }
+  };
 
   return (
     <Stack alignItems="center" justifyContent="center" mt="37px" p="20px">
@@ -51,7 +51,7 @@ const SearchExercises = ({setExercises,bodyPart,setBodyPart}) => {
        <TextField sx={{
         input:{fontWeight:"700" ,border:"none",borderRadius:"4px"},
         width:{lg:"800px",xs:'350px'},backgroundColor:"fff" ,borderRadius:"40"
-       }} placeholder='Search Exercises' onChange={(e)=>setSearch(e.target.value.toLocaleLowerCase())} value={search} type="text" height="76px"/>
+       }} placeholder='Search Exercises' onChange={(e)=>setSearch(e.target.value.toLowerCase())} value={search} type="text" height="76px"/>
        <Button className="search-btn" 
        sx={{
         bgcolor:"#ff2625",
