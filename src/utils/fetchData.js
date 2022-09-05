@@ -7,6 +7,15 @@ export const options = {
     }
   };
 
+
+ export const youtubeoptions = {
+    method: 'GET',   
+    headers: {
+      'X-RapidAPI-Key': '76506dc85amsh8706779755a300fp160c58jsn78784bffdafd',
+      'X-RapidAPI-Host': 'youtube-search-and-download.p.rapidapi.com'
+    }
+  };
+
 export const fetchData = async ( url,options) =>{
     const response= await fetch(url,options);
     const data = await response.json();

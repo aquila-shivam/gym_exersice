@@ -13,7 +13,7 @@ return(
     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path="/element/:id" element={<ExerciseDetails/>}/>
+      <Route path="/exercise/:id" element={<ExerciseDetails/>}/>
     </Routes>
     <Footer/>
   </Box>
